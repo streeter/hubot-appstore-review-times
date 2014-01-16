@@ -37,7 +37,8 @@ fetchReviewTime = (msg, store) ->
             average = Select(handler.dom, ".review.#{storeLower} .average")[0]
             basedOn = Select(handler.dom, ".review.#{storeLower} .based-on a")[0]
 
-            msg.send "The #{store} review time is ~#{average.children[0].raw}, based on <a href='#{reviewUrl}#{basedOn.attribs.href}'>#{basedOn.children[0].raw}</a>."
+            msg.send "The #{store} review time is ~#{average.children[0].raw}, based on #{basedOn.children[0].raw}."
+            msg.send "#{reviewUrl}#{basedOn.attribs.href}"
 
 module.exports = (robot) ->
   robot.respond /(what are the )?review times\??/i, (msg) ->
