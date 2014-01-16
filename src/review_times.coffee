@@ -1,5 +1,6 @@
 # Description:
-#   Display the latest review times for iOS and Mac apps.
+#   Display the latest review times for iOS and Mac apps
+#   as scraped from http://reviewtimes.shinydevelopment.com
 #
 # Dependencies:
 #   "htmlparser": "1.7.6"
@@ -19,7 +20,7 @@
 HtmlParser = require "htmlparser"
 Select     = require("soupselect").select
 
-reviewUrl = "http://reviewtimes.shinydevelopment.com/"
+reviewUrl = "http://reviewtimes.shinydevelopment.com"
 
 fetchReviewTime = (msg, store) ->
     msg.http(reviewUrl).get() (err, res, body) ->
@@ -36,7 +37,7 @@ fetchReviewTime = (msg, store) ->
             average = Select(handler.dom, ".review.#{storeLower} .average")[0]
             basedOn = Select(handler.dom, ".review.#{storeLower} .based-on a")[0]
 
-            msg.send "The #{store} review time is ~#{average.children[0].raw}, based on #{basedOn.children[0].raw}."
+            msg.send "The #{store} review time is ~#{average.children[0].raw}, based on <a href='#{reviewUrl}#{basedOn.attribs.href}'>#{basedOn.children[0].raw}</a>."
 
 module.exports = (robot) ->
   robot.respond /(what are the )?review times\??/i, (msg) ->
