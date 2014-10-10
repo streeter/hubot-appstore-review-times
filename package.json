@@ -25,7 +25,7 @@
   "main": "./src/review_times",
   "dependencies": {
     "htmlparser": "~1.7.6"
-,   "hubot": "~2.6.3"
+,   "hubot": "~2.6"
 ,   "soupselect": "~0.2.0"
   }
 }
