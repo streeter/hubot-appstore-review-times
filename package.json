@@ -1,6 +1,6 @@
 {
   "name": "hubot-appstore-review-times",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Chris Streeter",
   "description": "Scrape the average App Store review times website and report back.",
   "keywords": [
