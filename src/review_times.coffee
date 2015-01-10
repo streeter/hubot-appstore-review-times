@@ -20,7 +20,7 @@
 HtmlParser = require "htmlparser"
 Select     = require("soupselect").select
 
-reviewUrl = "http://reviewtimes.shinydevelopment.com"
+reviewUrl = "http://appreviewtimes.com/"
 
 fetchReviewTime = (msg, store) ->
     msg.http(reviewUrl).get() (err, res, body) ->
